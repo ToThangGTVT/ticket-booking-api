@@ -28,17 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    @Autowired
+//    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
-
     }
 
-    @Bean
-    public JwtAuthenticationEntryPoint jwtAuthenticationEntryPointBean() throws Exception{
-        return new JwtAuthenticationEntryPoint();
-    }
+//    @Bean
+//    public JwtAuthenticationEntryPoint jwtAuthenticationEntryPointBean() throws Exception{
+//        return new JwtAuthenticationEntryPoint();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -71,7 +69,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/configuration/ui",
                         "/swagger-resources/**",
                         "/configuration/security",
-                        "/swagger-ui.html",
+                        "/swagger-ui.html**",
+                        "/swagger-ui/**",
+                        "/swagger-ui/index.html**",
+                        "/actuator/health",
                         "/webjars/**"
                 ).permitAll().anyRequest().authenticated()
                 .and()

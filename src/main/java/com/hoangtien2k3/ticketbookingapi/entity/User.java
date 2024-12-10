@@ -1,6 +1,7 @@
 package com.hoangtien2k3.ticketbookingapi.entity;
 
 import com.hoangtien2k3.ticketbookingapi.dao.UserNameProfile;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -56,29 +57,37 @@ public class User {
     private int userId;
 
     @Column(name = "username", unique = true)
+    @Schema(example = "username1")
     private String username;
 
     @Column(name = "password", length = 6)
+    @Schema(example = "123456")
     private String password;
 
     @Column(name = "user_avatar")
     private String userAvatar;
 
     @Column(name = "user_fullname")
+    @Schema(example = "Tô Quang Thắng")
     private String userFullname;
 
     @Column(name = "user_birthday")
+    @Schema(example = "1989-12-12")
     private String userBirthday;
 
     @Column(name = "user_gender")
+    @Schema(example = "1")
     private int userGender;
 
     @Column(name = "user_email", unique = true, nullable = false)
+    @Schema(example = "tothang97nbvn@gmail.com")
     private String userEmail;
 
     @Column(name = "user_phone", unique = true, length = 10)
+    @Schema(example = "0123456789")
     private String userPhone;
 
     @Column(name = "user_city")
-    private String userCity;
+    @Schema(example = "1")
+    private Integer userCity;
 }

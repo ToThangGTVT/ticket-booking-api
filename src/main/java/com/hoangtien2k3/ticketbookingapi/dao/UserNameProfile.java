@@ -17,7 +17,7 @@ public class UserNameProfile {
     private String userBirthday;
     private int userGender;
     private String userEmail;
-    private String userCity;
+    private Integer userCity;
     private String userPhone;
     private int userPoint;
 }

@@ -4,7 +4,9 @@ import com.hoangtien2k3.ticketbookingapi.entity.User;
 import com.hoangtien2k3.ticketbookingapi.dao.UserNameProfile;
 import com.hoangtien2k3.ticketbookingapi.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -35,6 +37,7 @@ public class UserController {
 
     @ApiOperation(value = "Login - Get Token Login")
     @PostMapping("/login")
+    @Schema(description = "Login", example = "Nguyen Van A")
     public ResponseEntity<?> loginUser(@Valid @RequestBody HashMap<String, String> request){
         return ResponseEntity.ok(userService.loginUser(request.get("username"), request.get("password")));
     }
